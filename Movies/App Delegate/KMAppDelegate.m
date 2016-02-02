@@ -9,6 +9,7 @@
 #import "KMAppDelegate.h"
 #import "KMStoryBoardUtilities.h"
 #import "KMDiscoverListViewController.h"
+#import "Heap.h"
 
 @implementation KMAppDelegate
 
@@ -17,6 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Heap setAppId:@"1559672132"];
+#ifdef DEBUG
+    [Heap enableVisualizer];
+#endif
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UINavigationController* navigationController = (UINavigationController*)[KMStoryBoardUtilities viewControllerForStoryboardName:@"KMDiscoverStoryboard" class:[KMDiscoverListViewController class]];
